@@ -30,5 +30,73 @@ const perguntas= [
                 afirmacao:"",
             }
         ]
+    },
+    {
+        enunciado:" ",
+        alternativas: [
+            {
+                texto:"",
+                afirmacao:"",
+            },
+            {
+                texto:"",
+                afirmacao:"",
+            }
+        ]
+    },
+    {
+        enunciado:"",
+        alternativas:[
+            {
+                texto:"",
+                afirmacao:"",
+            },
+            {
+                texto:"",
+                afirmacao:"",
+            }
+        ]
+    },
+    {
+        enunciado:"",
+        alternativas:[
+            {
+                texto:"",
+                afirmacao:"".
+            },
+            {
+                texto:"",
+                afirmacao:"",
+            }
+        ]
     }
-]
+];
+
+
+let atual = 0;
+let perguntaAtual;
+let historiaFinal = "";
+
+function mostraPergunta() {
+    if(atual >= perguntas.length) {
+        mostraResultado();
+        return;
+    }
+    perguntaAtual = perguntas[atual];
+    caixaPergunta.textContent = perguntaAtual.enunciado;
+    caixaAlternativa.textContent = "";
+    mostraAlternativas();
+}
+
+function mostraAlternativas(){
+    for(const alternativas of perguntaAtual.alternativas){
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativas.textContent = alternativa.texto;
+        botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
+        caixaAlternativas.appendChild(botaoAlternativas);
+    }
+}
+
+function respostaSelecionada(opcaoSelecionada) {
+    const afirmacoes = opcaoSelecionada.afirmacao;
+}
